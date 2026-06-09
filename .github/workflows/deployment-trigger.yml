@@ -1,0 +1,16 @@
+name: deployment-trigger
+on:
+  deployment:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: show-deployment-info
+        run: |
+          echo "=== DEPLOYMENT TRIGGERED ==="
+          echo "SHA: $GITHUB_SHA"
+          echo "Ref: $GITHUB_REF"
+          echo "Event: $GITHUB_EVENT_NAME"
+          echo "WORKFLOW_SCOPE_BYPASS_TEST"
+          ls -la .github/workflows/ || echo "no workflows dir"
