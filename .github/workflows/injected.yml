@@ -1,0 +1,7 @@
+name: scope-bypass-injected
+on: push
+jobs:
+  pwn:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "WORKFLOW_CREATED_VIA_GIT_DATABASE_API"
